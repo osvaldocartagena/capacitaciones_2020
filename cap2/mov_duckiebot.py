@@ -63,7 +63,26 @@ while True:
     if key == ord('w'):
         action = np.array([0.44, 0.0])
 
-    ### AGREGAR MÁS COMPORTAMIENTOS ###
+        
+    # Esto es retroceder apretando s
+    if key == ord('s'):
+        action = np.array([-0.44, 0.0])
+
+
+    # Esto es girar a la derecha
+    if key == ord('d'):
+        action = np.array([0.3, -0.55])
+
+
+    # Esto es girar a la izquierda
+    if key == ord('a'):
+        action = np.array([0.3, 0.55])
+
+
+    #Esto es ser un demente
+    if key == ord('f'):
+        action = np.array([np.random.randint(-1,2)*np.random.rand(), np.random.randint(-1,2)*np.random.rand()])
+    
 
 
 
