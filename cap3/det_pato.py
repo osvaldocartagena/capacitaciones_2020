@@ -60,8 +60,8 @@ if __name__ == '__main__':
 
     # Parametros para el detector de patos
     # Se debe encontrar el rango apropiado
-    lower_yellow = np.array([177, 128, 0])
-    upper_yellow = np.array([255, 216, 2])
+    lower_yellow = np.array([177, 88, 0])
+    upper_yellow = np.array([255, 255, 2])
     min_area = 2500
 
     while True:
@@ -122,14 +122,13 @@ if __name__ == '__main__':
         # https://docs.opencv.org/trunk/d3/d05/tutorial_py_table_of_contents_contours.html
         contours, hierarchy = cv2.findContours(mask , cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         # Iterar sobre contornos y dibujar bounding box de los patos
-        min_area=0
+        min_area=1000
         for cnt in contours:
             AREA= cv2.contourArea(cnt)
             
             if AREA > min_area:
-                min_area= AREA
                 x,y,w,h = cv2.boundingRect(cnt)
-                cv2.rectangle(obs, (x,y),(x+w,y+h), (0,255,0), 1)
+                cv2.rectangle(obs, (x,y),(x+w,y+h), (0,255,0), 2)
                 #Dibujar rectangulo en el frame original
                 
         
